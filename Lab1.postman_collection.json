@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "9301fc3c-d9bc-4157-861c-0d2473b9c8a5",
+		"name": "Lab1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lab1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e307702a-e26e-4440-85da-5cd98170bbf6",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "518813e6-5a5f-4fc9-a3fc-3cf695d980b7",
+						"exec": [
+							"pm.test(\"Date now\", function(){",
+							"    pm.response.to.be.header(\"Date\", \"Thu, 28 Nov 2019 06:01:38 GMT\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://yandex.ru/pogoda/yekaterinburg",
+					"protocol": "https",
+					"host": [
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"pogoda",
+						"yekaterinburg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e307702a-e26e-4440-85da-5cd98170bbf6",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "518813e6-5a5f-4fc9-a3fc-3cf695d980b7",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Реклама\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://yandex.ru/",
+					"protocol": "https",
+					"host": [
+						"yandex",
+						"ru"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Get_test1"
+			},
+			"response": []
+		},
+		{
+			"name": "test_time",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e307702a-e26e-4440-85da-5cd98170bbf6",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "518813e6-5a5f-4fc9-a3fc-3cf695d980b7",
+						"exec": [
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://yandex.ru/",
+					"protocol": "https",
+					"host": [
+						"yandex",
+						"ru"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Time "
+			},
+			"response": []
+		},
+		{
+			"name": "Date time",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e307702a-e26e-4440-85da-5cd98170bbf6",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "518813e6-5a5f-4fc9-a3fc-3cf695d980b7",
+						"exec": [
+							"pm.test(\"Date now\", function(){",
+							"    pm.response.to.be.header(\"Date\", \"Thu, 28 Nov 2019 06:01:38 GMT\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://yandex.ru/pogoda/yekaterinburg",
+					"protocol": "https",
+					"host": [
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"pogoda",
+						"yekaterinburg"
+					]
+				},
+				"description": "Date"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
