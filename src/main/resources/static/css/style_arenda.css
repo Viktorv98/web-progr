@@ -1,0 +1,57 @@
+body{
+ background: green;
+}
+
+.product-wrapper {
+	display: block;
+	width: 50%;
+	float: left;
+	transition: width .2s;
+}
+.product {
+	display: block;
+	border: 1px solid #b5e9a7;
+	border-radius: 3px;
+	position: relative;
+	background: #fff;
+	margin: 0 20px 20px 0;
+	text-decoration: none;
+	color: #474747;
+	z-index: 0;
+	height: 300px;
+}
+
+.img_product {
+  width: 40%;
+  height: 100%;
+  float: left;
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+.text_product{
+  width: 60%;
+  height: 80%;
+  float:left;
+}
+
+h2{
+  height: 10%;
+  margin: 20px auto 0px 20px;
+}
+p{
+  height: 50%;
+  margin: 20px auto 0px 20px;
+}
+
+h5 {
+  height: 20%;
+  margin: 0px 0px 0px 20px;
+}
+button{
+  height: 10%;
+  width: 40%;
+  margin: 10px auto 0px 35%;
+}

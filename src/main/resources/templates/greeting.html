@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{css/style_arenda.css}"/>
+</head>
+<body>
+<p th:text="'Hello, ' + ${name} + '!'" />
+<ul class="products clearfix">
+    <li class="product-wrapper">
+        <div href="" class="product">
+            <div class="img_product">
+                <img src="foto/1.jpg" alt="">
+            </div>
+            <div class="text_product">
+                <h2>Name 1</h2>
+                <p>trololo</p>
+                <h5>Цена: 270р</h5>
+
+                <button type="button" name="cust"></button>
+            </div>
+        </div>
+    </li>
+    <li class="product-wrapper">
+        <div href="" class="product">
+            <div class="img_product">
+                <img src="foto/2.jpg" alt="">
+            </div>
+            <div class="text_product">
+                <h2>Name 2</h2>
+                <p>trololo</p>
+                <h5>Цена: 240р</h5>
+
+                <button type="button" name="cust"></button>
+            </div>
+        </div>
+    </li>
+</ul>
+</body>
+</html>
