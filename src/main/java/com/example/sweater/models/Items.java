@@ -15,18 +15,8 @@ public class Items {
     private Integer cost;
     private String desk;
 
-
     public Integer getId() {
         return id;
-    }
-
-    public Items(String name, Integer cost, String desk) {
-        this.name = name;
-        this.desk = desk;
-        this.cost = cost;
-    }
-
-    public Items() {
     }
 
     public void setId(Integer id) {
@@ -41,19 +31,19 @@ public class Items {
         this.name = name;
     }
 
-    public String getDesk() {
-        return desk;
-    }
-
-    public void setDesk(String desk) {
-        this.desk = desk;
-    }
-
     public Integer getCost() {
         return cost;
     }
 
     public void setCost(Integer cost) {
         this.cost = cost;
+    }
+
+    public String getDesk() {
+        return desk;
+    }
+
+    public void setDesk(String desk) {
+        this.desk = desk;
     }
 }

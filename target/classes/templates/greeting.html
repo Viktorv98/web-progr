@@ -6,7 +6,6 @@
     <link rel="stylesheet" th:href="@{css/style_arenda.css}"/>
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
 <ul class="products clearfix">
     <li class="product-wrapper">
         <div href="" class="product">
@@ -14,9 +13,9 @@
                 <img src="foto/1.jpg" alt="">
             </div>
             <div class="text_product">
-                <h2>Name 1</h2>
-                <p>trololo</p>
-                <h5>Цена: 270р</h5>
+                <h2 th:text = "${items[0].name}">Name 1</h2>
+                <p th:text = "${items[0].desk}">trololo</p>
+                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
 
                 <button type="button" name="cust"></button>
             </div>
@@ -25,17 +24,46 @@
     <li class="product-wrapper">
         <div href="" class="product">
             <div class="img_product">
-                <img src="foto/2.jpg" alt="">
+                <img src="foto/1.jpg" alt="">
             </div>
             <div class="text_product">
-                <h2>Name 2</h2>
-                <p>trololo</p>
-                <h5>Цена: 240р</h5>
+                <h2 th:text = "${items[0].name}">Name 1</h2>
+                <p th:text = "${items[0].desk}">trololo</p>
+                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
+
+                <button type="button" name="cust"></button>
+            </div>
+        </div>
+    </li>
+    <li class="product-wrapper">
+        <div href="" class="product">
+            <div class="img_product">
+                <img src="foto/1.jpg" alt="">
+            </div>
+            <div class="text_product">
+                <h2 th:text = "${items[0].name}">Name 1</h2>
+                <p th:text = "${items[0].desk}">trololo</p>
+                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
+
+                <button type="button" name="cust"></button>
+            </div>
+        </div>
+    </li>
+    <li class="product-wrapper">
+        <div href="" class="product">
+            <div class="img_product">
+                <img src="foto/1.jpg" alt="">
+            </div>
+            <div class="text_product">
+                <h2 th:text = "${items[0].name}">Name 1</h2>
+                <p th:text = "${items[0].desk}">trololo</p>
+                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
 
                 <button type="button" name="cust"></button>
             </div>
         </div>
     </li>
 </ul>
+<div th:text = "${items[0].name}"> </div>
 </body>
 </html>
