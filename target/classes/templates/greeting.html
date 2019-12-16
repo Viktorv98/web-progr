@@ -9,7 +9,7 @@
 <div class="shapka">
 <h1 id="poisk">Поиск</h1>
     <input id="poi" type="text" size="30">
-    <button id="filtr">Фильтр</button>
+    <button id="filtr">Сортировать по цене</button>
     <img th:src="'foto/kor.png'" alt="" id="kor">
 </div>
 <ul class="products_clearfix">
@@ -23,7 +23,7 @@
                 <p th:text = "${item.desk}">trololo</p>
                 <h5 th:text = "${item.cost}">Цена: 270р</h5>
 
-                <button type="button" name="cust">Купить</button>
+                <button type="button" class="cust">Купить</button>
             </div>
         </div>
     </li>
