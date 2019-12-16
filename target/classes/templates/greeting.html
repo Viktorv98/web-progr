@@ -6,64 +6,31 @@
     <link rel="stylesheet" th:href="@{css/style_arenda.css}"/>
 </head>
 <body>
-<ul class="products clearfix">
-    <li class="product-wrapper">
+<div class="shapka">
+<h1 id="poisk">Поиск</h1>
+    <input id="poi" type="text" size="30">
+    <button id="filtr">Фильтр</button>
+    <img th:src="'foto/kor.png'" alt="" id="kor">
+</div>
+<ul class="products_clearfix">
+    <li th:each="item : ${items}" class="product-wrapper">
         <div href="" class="product">
             <div class="img_product">
-                <img src="foto/1.jpg" alt="">
+                <img th:src="'foto/' + ${item.name} + '.jpg'" alt="">
             </div>
             <div class="text_product">
-                <h2 th:text = "${items[0].name}">Name 1</h2>
-                <p th:text = "${items[0].desk}">trololo</p>
-                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
+                <h2 th:text = "${item.name}">Name 1</h2>
+                <p th:text = "${item.desk}">trololo</p>
+                <h5 th:text = "${item.cost}">Цена: 270р</h5>
 
-                <button type="button" name="cust"></button>
-            </div>
-        </div>
-    </li>
-    <li class="product-wrapper">
-        <div href="" class="product">
-            <div class="img_product">
-                <img src="foto/1.jpg" alt="">
-            </div>
-            <div class="text_product">
-                <h2 th:text = "${items[0].name}">Name 1</h2>
-                <p th:text = "${items[0].desk}">trololo</p>
-                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
-
-                <button type="button" name="cust"></button>
-            </div>
-        </div>
-    </li>
-    <li class="product-wrapper">
-        <div href="" class="product">
-            <div class="img_product">
-                <img src="foto/1.jpg" alt="">
-            </div>
-            <div class="text_product">
-                <h2 th:text = "${items[0].name}">Name 1</h2>
-                <p th:text = "${items[0].desk}">trololo</p>
-                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
-
-                <button type="button" name="cust"></button>
-            </div>
-        </div>
-    </li>
-    <li class="product-wrapper">
-        <div href="" class="product">
-            <div class="img_product">
-                <img src="foto/1.jpg" alt="">
-            </div>
-            <div class="text_product">
-                <h2 th:text = "${items[0].name}">Name 1</h2>
-                <p th:text = "${items[0].desk}">trololo</p>
-                <h5 th:text = "${items[0].cost}">Цена: 270р</h5>
-
-                <button type="button" name="cust"></button>
+                <button type="button" name="cust">Купить</button>
             </div>
         </div>
     </li>
 </ul>
-<div th:text = "${items[0].name}"> </div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="../js/main.js"></script>
 </body>
 </html>
