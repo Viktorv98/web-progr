@@ -6,6 +6,16 @@
     <link rel="stylesheet" th:href="@{css/style_arenda.css}"/>
 </head>
 <body>
+<button id="modBtn" th:text="'Ваш город ' + ${city}">
+    Ваш город Пермь. Изменить?
+</button>
+<div id="modWindow">
+    <div class="mod_cont">
+        <p>Введите название города!</p>
+        <input id="nameCity">
+        <button id="close">Применить</button>
+    </div>
+</div>
 <div class="shapka">
 <h1 id="poisk">Поиск</h1>
     <input id="poi" type="text" size="30">
@@ -32,5 +42,6 @@
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
 </body>
 </html>

@@ -89,3 +89,17 @@ float:right;
 .products_clearfix li.hide{
 display:none;
 }
+
+#modWindow{
+display:none;
+position: fixed;
+z-index:1;
+overflow: auto;
+background-color: red;
+}
+
+.mod_cont{
+margin: 15%;
+padding 20px;
+width: 80%;
+}
