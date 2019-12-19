@@ -7,6 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Items {
+    public Items() {
+    }
+
+    public Items(Integer id, String name, Integer cost, String desk) {
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+        this.desk = desk;
+    }
+
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;

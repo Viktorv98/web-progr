@@ -5,6 +5,7 @@ import com.example.sweater.models.Items;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.sweater.repos.ItemsRepo;
 
@@ -32,7 +33,7 @@ public class GreetingController {
         model.put("city",myCookie);
 
         int countCar = 0;
-        List<Integer> list = new ArrayList<>();
+        List<Items> list = new ArrayList<>();
         Object countCars = request.getSession().getAttribute("countCars");
         if (countCars == null){
             sess.setAttribute("countCars", countCar);
@@ -45,13 +46,13 @@ public class GreetingController {
         return "greeting";
     }
 
-    @GetMapping("/buy/{car_id}")
+  /* @GetMapping("/buy/{car_id}")
     public String buy (Map<String, Object> model, HttpServletRequest request, HttpServletResponse response, @PathVariable("car_id") int id,  HttpSession sess){
 
         int countCar = 0;
-        List<Integer> list = new ArrayList<>();
+        List<Items> list = new ArrayList<>();
         countCar = (Integer)request.getSession().getAttribute("countCars");
-        list = (List<Integer>)request.getSession().getAttribute("cars");
+        list = (List<Items>)request.getSession().getAttribute("cars");
 
         list.add(id);
         countCar++;
@@ -59,10 +60,36 @@ public class GreetingController {
         sess.setAttribute("cars", list);
         model.put("countCar", countCar);
         return Integer.toString(countCar);
-    }
-   /* @GetMapping("/all")
-    public @ResponseBody
-    Iterable<Items> getAllUsers() {
-        return itemsRepo.findAll();
     }*/
+
+    @PostMapping ("/buy")
+    public String buying (Map<String, Object> model, @RequestParam int car_id, @RequestParam String car_name, @RequestParam int car_cost, @RequestParam String car_count, HttpServletRequest request, HttpSession sess){
+        int countCar = 0;
+        List<Items> lists = new ArrayList<>();
+        lists = (List<Items>)request.getSession().getAttribute("cars");
+        countCar = (Integer)request.getSession().getAttribute("countCars");
+        lists.add(new Items(car_id,car_name,car_cost, car_count));
+        countCar++;
+        sess.setAttribute("countCars", countCar);
+        sess.setAttribute("cars", lists);
+        model.put("countCar", countCar);
+        model.put("cars", lists);
+        return Integer.toString(countCar);
+    }
+
+
+
+    @GetMapping("/basket")
+    public String bask(Map<String, Object> model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        int countCar = 0;
+        List<Items> list = new ArrayList<>();
+        countCar = (Integer)request.getSession().getAttribute("countCars");
+        list = (List<Items>)request.getSession().getAttribute("cars");
+
+
+        model.put("countCar", countCar);
+        model.put("cars", list);
+        return "basket";
+    }
 }

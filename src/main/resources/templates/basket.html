@@ -6,6 +6,24 @@
     <link rel="stylesheet" th:href="@{css/style_basket.css}"/>
 </head>
 <body>
+<div>
+    <h1 th:text="'Корзина: '+${countCar} + ' товаров!'">Корзина: 0 товаров.</h1>
+</div>
+<div  class="table_car">
+    <div class="element">
+        <p > Name</p>
+        <p > Cost</p>
+        <p> Count</p>
 
+    </div>
+</div>
+<div th:each="car: ${cars}" class="table_car">
+    <div class="element">
+        <p th:text="${car.name}"> Name</p>
+        <p th:text="${car.cost}"> Cost</p>
+        <input th:value="${car.desk}"></input>
+        <button id="${car.id}">&times;</button>
+    </div>
+</div>
 </body>
 </html>

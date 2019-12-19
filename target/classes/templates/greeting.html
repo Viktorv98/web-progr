@@ -20,7 +20,9 @@
 <h1 id="poisk">Поиск</h1>
     <input id="poi" type="text" size="30">
     <button id="filtr">Сортировать по цене</button>
-    <img th:src="'foto/kor.png'" alt="" id="kor">
+    <a href="http://localhost:8080/basket">
+    <img th:src="'foto/kor.png'" alt="" id="kor" >
+    </a>
     <p id="counts" th:text="${countCar}"></p>
 </div>
 <ul class="products_clearfix">
@@ -34,7 +36,7 @@
                 <p th:text = "${item.desk}">trololo</p>
                 <h5 th:id="${item.cost}" th:text = "${item.cost}">Цена: 270р</h5>
 
-                <button type="button" class="cust" href="buy" th:id="${item.id}" th:onclick="'ajaxGet(' + ${item.id} + ')'">Купить</button>
+                <button type="button" class="cust" href="buy" th:id="${item.id}" >Купить</button>
             </div>
         </div>
     </li>

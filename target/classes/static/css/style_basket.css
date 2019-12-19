@@ -1,0 +1,23 @@
+.table_car{
+width:100%;
+height: 50px;
+position: relative;
+}
+p{
+margin:10px 0px 0px 10px;
+width:25%;
+height:100%;
+  float:left;
+  display:inline;
+}
+button{
+margin:10px 40px 0px 15px;
+height:100%;
+float:right;
+}
+input{
+margin:10px 0px 0px 10px;
+width:25%;
+height:100%;
+float:left;
+}
