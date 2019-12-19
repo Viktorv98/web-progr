@@ -46,4 +46,15 @@ public class Items {
     public void setDesk(String desk) {
         this.desk = desk;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Game{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cost='" + cost + '\'' +
+                ", desk='" + desk + '\'' +
+                '}';
+    }
 }
