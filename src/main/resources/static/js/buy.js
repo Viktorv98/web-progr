@@ -1,6 +1,7 @@
 $(document).ready(function(){
    $(".product-wrapper button").click(function(){
       var parent = $(this).parent().parent();
+      var counts = parseInt(document.getElementById("counts").innerHTML);
       var id = parent.find ('button').attr('id');
       var cost = parent.find ('h5').attr('id');
       var name = parent.find ('h2').attr('id');
@@ -11,7 +12,12 @@ $(document).ready(function(){
          url: "/buy",
          data: {car_id: id, car_name: name, car_cost: cost, car_count: count},
          success: function (data){
+            document.getElementById("counts").innerHTML= counts+=1;
             alert('Товар добавлен')
+         },
+         error:function (xhr, ajaxOptions, thrownError){
+         document.getElementById("counts").innerHTML= counts+=1;
+                       //  alert(id);
          }
       });
       return false;

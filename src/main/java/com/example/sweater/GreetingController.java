@@ -83,13 +83,39 @@ public class GreetingController {
     public String bask(Map<String, Object> model, HttpServletRequest request){
         HttpSession session = request.getSession();
         int countCar = 0;
+        int price = 0;
         List<Items> list = new ArrayList<>();
         countCar = (Integer)request.getSession().getAttribute("countCars");
         list = (List<Items>)request.getSession().getAttribute("cars");
-
-
+        for (int i = 0; i < list.size(); i++){
+            price += list.get(i).getCost()*Integer.parseInt(list.get(i).getDesk());
+        }
         model.put("countCar", countCar);
         model.put("cars", list);
+        model.put("price", price);
         return "basket";
+    }
+
+    @PostMapping("/basket")
+    public String basket(Map<String, Object> model, HttpServletRequest request, @RequestParam int car_id, @RequestParam String car_count){
+        HttpSession session = request.getSession();
+        int countCar = 0;
+        int price = 0;
+        List<Items> list = new ArrayList<>();
+        countCar = (Integer)request.getSession().getAttribute("countCars");
+        list = (List<Items>)request.getSession().getAttribute("cars");
+        for (int i = 0; i < list.size(); i++){
+            if (list.get(i).getId() == car_id){
+            list.get(i).setDesk(car_count);
+            price += list.get(i).getCost()*Integer.parseInt(list.get(i).getDesk());
+            }
+        }
+        session.setAttribute("countCars", countCar);
+        session.setAttribute("cars", list);
+        model.put("countCar", countCar);
+        model.put("cars", list);
+        model.put("price", price);
+        return Integer.toString(countCar);
+
     }
 }

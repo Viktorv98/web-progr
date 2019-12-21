@@ -20,10 +20,22 @@
 <div th:each="car: ${cars}" class="table_car">
     <div class="element">
         <p th:text="${car.name}"> Name</p>
-        <p th:text="${car.cost}"> Cost</p>
-        <input th:value="${car.desk}"></input>
-        <button id="${car.id}">&times;</button>
+        <p class="cost" th:id="'col' + ${car.id}" th:text="${car.cost}"></p>
+        <div class="amount">
+            <span class="down">-</span>
+            <input class="inp" th:id="'co'+${car.id}" th:value="${car.desk}"> </input>
+            <span class="up">+</span>
+        </div>
+        <button th:id="${car.id}" >&times;</button>
     </div>
 </div>
+<div>
+    <h1  class="sum"> Итого:<h2 id="sums" th:text="${price}"> </h2>  руб.</h1>
+</div>
+<button> Оформить заказ! </button>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="../js/basket.js"></script>
 </body>
 </html>

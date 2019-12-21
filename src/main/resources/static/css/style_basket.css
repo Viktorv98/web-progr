@@ -1,3 +1,6 @@
+body{
+ background: green;
+}
 .table_car{
 width:100%;
 height: 50px;
@@ -20,4 +23,9 @@ margin:10px 0px 0px 10px;
 width:25%;
 height:100%;
 float:left;
+}
+span {
+    cursor: pointer;
+    margin:10px 0px 0px 10px;
+    float:left;
 }
