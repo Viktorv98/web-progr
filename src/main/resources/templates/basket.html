@@ -16,8 +16,8 @@
         <p> Count</p>
     </div>
 </div>
-<div th:each="car: ${cars}" class="table_car">
-    <div class="element" th:id="'elem'+${car.id}">
+<div th:each="car: ${cars}" class="table_car" th:id="'elem'+${car.id}">
+    <div class="element" >
         <p th:text="${car.name}"> Name</p>
         <p class="cost" th:id="'col' + ${car.id}" th:text="${car.cost}"></p>
         <div class="amount">
@@ -31,10 +31,14 @@
 <div>
     <h1  class="sum"> Итого:<h2 id="sums" th:text="${price}"> </h2>  руб.</h1>
 </div>
-<button id="buying"> Оформить заказ! </button>
+<div class="bd">
+    <button id="buying"> Оформить заказ! </button>
+</div>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="../js/basket.js"></script>
+<script type="text/javascript" src="../js/buying.js"></script>
 </body>
 </html>

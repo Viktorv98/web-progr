@@ -1,11 +1,10 @@
 package com.example.sweater;
 
-import com.example.sweater.models.Baskets;
+import com.example.sweater.models.Korzina;
 import com.example.sweater.models.Items;
+import com.example.sweater.repos.BasketsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.sweater.repos.ItemsRepo;
 
@@ -21,13 +20,16 @@ import java.util.Map;
 public class GreetingController {
     @Autowired
     private ItemsRepo itemsRepo;
+    @Autowired
+    private BasketsRepo basketsRepo;
     Iterable<Items> items;
+    Cookie cookie;
 
     @GetMapping("/")
     public String greeting (Map<String, Object> model, HttpServletRequest request, HttpServletResponse response, @CookieValue (value = "myCity", defaultValue = "null") String myCookie, HttpSession sess){
         items = itemsRepo.findAll();
         model.put( "items", items);
-        Cookie cookie = new Cookie("myCity", myCookie);
+        cookie = new Cookie("myCity", myCookie);
         cookie.setMaxAge(-1);
         response.addCookie(cookie);
         model.put("city",myCookie);
@@ -45,22 +47,6 @@ public class GreetingController {
         model.put("countCar", countCar);
         return "greeting";
     }
-
-  /* @GetMapping("/buy/{car_id}")
-    public String buy (Map<String, Object> model, HttpServletRequest request, HttpServletResponse response, @PathVariable("car_id") int id,  HttpSession sess){
-
-        int countCar = 0;
-        List<Items> list = new ArrayList<>();
-        countCar = (Integer)request.getSession().getAttribute("countCars");
-        list = (List<Items>)request.getSession().getAttribute("cars");
-
-        list.add(id);
-        countCar++;
-        sess.setAttribute("countCars", countCar);
-        sess.setAttribute("cars", list);
-        model.put("countCar", countCar);
-        return Integer.toString(countCar);
-    }*/
 
     @PostMapping ("/buy")
     public String buying (Map<String, Object> model, @RequestParam int car_id, @RequestParam String car_name, @RequestParam int car_cost, @RequestParam String car_count, HttpServletRequest request, HttpSession sess){
@@ -142,5 +128,28 @@ public class GreetingController {
         model.put("price", price);
 
         return Integer.toString(countCar);
+    }
+
+    @PostMapping ("/buying")
+    @ResponseBody
+    public String buys (Map<String, Object> model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        int countCar = 0;
+        List<Items> list = new ArrayList<>();
+        countCar = (Integer)request.getSession().getAttribute("countCars");
+        list = (List<Items>)request.getSession().getAttribute("cars");
+
+        for (int i = 0; i < list.size(); i++){
+            Korzina korzina = new Korzina();
+          //  korzina.setId(i+1);
+            korzina.setName(list.get(i).getName());
+            korzina.setCost(list.get(i).getCost());
+            korzina.setCount(Integer.parseInt(list.get(i).getDesk()));
+            korzina.setCity(cookie.getValue());
+         //
+            //   Korzina korzina = new Korzina(list.get(i).getName(),list.get(i).getCost(),Integer.parseInt(list.get(i).getDesk()),"perm");
+            basketsRepo.save(korzina);
+        }
+        return "{}";
     }
 }
