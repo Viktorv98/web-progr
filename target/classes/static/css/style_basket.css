@@ -29,3 +29,6 @@ span {
     margin:10px 0px 0px 10px;
     float:left;
 }
+.table_car div.hide{
+display:none;
+}

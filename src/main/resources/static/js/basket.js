@@ -42,11 +42,14 @@ $(document).ready(function(){
          var count = parseInt(parent.find('input').val());
          var id = parent.find('button').attr('id');
          var id_n = 'col'+id;
+         var id_r = 'elem' + id;
          var price = parseInt(document.getElementById(id_n).innerHTML);
          var pricefull = parseInt(document.getElementById("sums").innerHTML);
 
          document.getElementById("sums").innerHTML= pricefull-price*count;
-         count = 0;
+         var cout = parseInt(document.getElementById("countTov").innerHTML);
+         document.getElementById("countTov").innerHTML = cout-1;
+         document.getElementById(id_r).remove();
          $.ajax({
                   type: "POST",
                   url: "/basket/delete",

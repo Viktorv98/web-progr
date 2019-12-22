@@ -7,18 +7,17 @@
 </head>
 <body>
 <div>
-    <h1 th:text="'Корзина: '+${countCar} + ' товаров!'">Корзина: 0 товаров.</h1>
+    <h1 >Корзина: <b id="countTov" th:text="${countCar}"> 0 </b> товаров.</h1>
 </div>
 <div  class="table_car">
     <div class="element">
         <p > Name</p>
         <p > Cost</p>
         <p> Count</p>
-
     </div>
 </div>
 <div th:each="car: ${cars}" class="table_car">
-    <div class="element">
+    <div class="element" th:id="'elem'+${car.id}">
         <p th:text="${car.name}"> Name</p>
         <p class="cost" th:id="'col' + ${car.id}" th:text="${car.cost}"></p>
         <div class="amount">
@@ -32,7 +31,7 @@
 <div>
     <h1  class="sum"> Итого:<h2 id="sums" th:text="${price}"> </h2>  руб.</h1>
 </div>
-<button> Оформить заказ! </button>
+<button id="buying"> Оформить заказ! </button>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
